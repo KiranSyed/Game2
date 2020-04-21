@@ -1,0 +1,96 @@
+body{
+    background-color: rgb(10, 10, 10);
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+h1{
+    font-weight: 700;
+    padding: 5% 0;
+    font-family: 'Monoton', cursive;
+    background-image: radial-gradient(circle, rgb(230, 141, 141), rgb(121, 83, 89), rgb(24, 206, 230) 10%,rgb(216, 121, 33),rgb(163, 79, 131), rgb(69, 187, 116));
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200%;
+    animation: gradient 5s linear alternate;
+}
+#timer{
+    color: white;
+}
+#score{
+    color: white;
+}
+@keyframes gradient{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 100%;
+    }
+}
+h1::before{
+    content: '';
+   display: block;
+   height: 5px;
+   background-image: radial-gradient(circle, rgb(230, 141, 141), rgb(121, 83, 89), rgb(24, 206, 230) 10%,rgb(216, 121, 33),rgb(163, 79, 131), rgb(69, 187, 116));
+   
+}
+h1::after{
+    content: '';
+   display: block;
+   height: 5px;
+   background-image: radial-gradient(circle, rgb(230, 141, 141), rgb(121, 83, 89), rgb(24, 206, 230) 10%,rgb(216, 121, 33),rgb(163, 79, 131), rgb(69, 187, 116));
+}
+
+
+.row{
+
+    padding: 0 15% 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.card{
+    height: 120px;
+    width: 120px;
+    background-image: url("images/hole.png");
+    cursor: url("images/hammer.png"), pointer;
+}
+
+img{
+    width: 70px;
+    height: 100px;
+    margin: auto;
+    position: absolute;
+    left: 20px;
+}
+.sneak{
+    display:block;
+    animation: disappear .5s linear forwards;
+}
+@keyframes disappear {
+    0%   { left:20px; top:5px; }
+    25%  { left:20px; top:10px; clip-path: inset(0% 0% 10% 0%);}
+    50%  { left:20px; top:15px; clip-path: inset(0% 0% 20% 0%);}
+    75%  { left:20px; top:20px; clip-path: inset(0% 0% 30% 0%);}
+    90%  { left:20px; top:25px; clip-path: inset(0% 0% 50% 0%);}
+    100% {clip-path: inset(0% 0% 100% 0%);}
+  }
+.peek{
+    display:block;
+    animation: appear 1s linear forwards;
+}
+@keyframes appear {
+    0%   {clip-path: inset(0% 0% 100% 0%); }
+    25%  { left:20px; top:25px; clip-path: inset(0% 0% 50% 0%);}
+    50%  { left:20px; top:20px; clip-path: inset(0% 0% 20% 0%);}
+    75%  { left:20px; top:15px; clip-path: inset(0% 0% 30% 0%);}
+    90%  { left:20px; top:10px; clip-path: inset(0% 0% 10% 0%);}
+    100% { left:20px; top:10px; clip-path: inset(0% 0% 0% 0%);}
+}
+.hidden{
+    display: none;
+}
